@@ -1,22 +1,23 @@
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Directory HTML-5 Template </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Directory HTML-5 Template </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+        
 	<!-- CSS here -->
-    <link rel="stylesheet" href="assets/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/slicknav.css">
-    <link rel="stylesheet" href="assets/flaticon.css">
-    <link rel="stylesheet" href="assets/animate.min.css">
-    <link rel="stylesheet" href="assets/magnific-popup.css">
-    <link rel="stylesheet" href="assets/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/themify-icons.css">
-    <link rel="stylesheet" href="assets/slick.css">
-    <link rel="stylesheet" href="assets/nice-select.css">
-    <link rel="stylesheet" href="assets/style.css">
+            <link rel="stylesheet" href="assets/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/owl.carousel.min.css">
+            <link rel="stylesheet" href="assets/slicknav.css">
+            <link rel="stylesheet" href="assets/flaticon.css">
+            <link rel="stylesheet" href="assets/animate.min.css">
+            <link rel="stylesheet" href="assets/magnific-popup.css">
+            <link rel="stylesheet" href="assets/fontawesome-all.min.css">
+            <link rel="stylesheet" href="assets/themify-icons.css">
+            <link rel="stylesheet" href="assets/slick.css">
+            <link rel="stylesheet" href="assets/nice-select.css">
+            <link rel="stylesheet" href="assets/style.css">
 
     <!-- Preloader Start -->
     <div id="preloader-active">
@@ -51,6 +52,13 @@
                                             <li><%= link_to 'Home',root_path %></li>
                                             <li><%# link_to 'Posted page',pages_path %></li>
                                             <li class="login">
+                                              <% if user_signed_in? %>
+                                                    <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+                                                    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "logout" %></li>
+                                                <% else %>
+                                                    <li><%= link_to 'Login', new_user_session_path, class: "login" %></li>
+                                                    <li><%= link_to 'Sign up', new_user_registration_path, class: "sign-up" %></li>
+                                                <% end %>
                                             </li>
                                         </ul>
                                     </nav>
