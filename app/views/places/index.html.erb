@@ -4,11 +4,12 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/logo/loder.jpg" alt="">
+                    <img src="../../assets/logo/loder.jpg" alt="">
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
@@ -29,9 +30,9 @@
                                     <nav>
                                         <ul id="navigation">                                                                                                                                     
                                             <li><%= link_to 'Home',root_path %></li>
-                                            <li><%# link_to 'Posted page',pages_path %></li>
+                                            <li><%= link_to 'Posted page',places_path %></li>
                                             <li class="login">
-                                              <% if user_signed_in? %>
+                                                <% if user_signed_in? %>
                                                     <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
                                                     <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "logout" %></li>
                                                 <% else %>
@@ -54,8 +55,9 @@
        </div>
         <!-- Header End -->
     </header>
+
     <main>
-        <!-- Hero Area Start-->
+      <!-- Hero Area Start-->
         <div class="slider-area hero-overly">
             <div class="single-slider hero-overly  slider-height d-flex align-items-center">
                 <div class="container">
@@ -63,279 +65,46 @@
                         <div class="col-xl-8 col-lg-9">
                             <!-- Hero Caption -->
                             <div class="hero__caption">
-                                <span>Post your favorite place</span>
+                                <span>Posts List</span>
                                 <h1>Discover Great Places</h1>
-                            </div>
-                            <!--Hero form -->
-                            <form action="#" class="search-box">
-                                <div class="input-form">
-                                    <input type="text" placeholder="What are you looking for?">
-                                </div>
-                                <div class="select-form">
-                                    <div class="select-itms">
-                                        <select name="select" id="select1">
-                                            <option value="">All Catagories</option>
-                                            <option value="">Catagories One</option>
-                                            <option value="">Catagories Two</option>
-                                            <option value="">Catagories Three</option>
-                                            <option value="">Catagories Four</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="search-form">
-                                    <a href="#">Search</a>
-                                </div>	
-                            </form>	
+                            </div>	
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!--Hero Area End-->
-        <!-- Popular Locations Start -->
-        <div class="popular-location section-padding30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle text-center mb-80">
-                            <span>Posted location</span>
-                        </div>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <div class="place-content-item">
+          <ul>
+            <% if @places.length != 0 %>
+              <% @places.each do |place| %>
+                <%= link_to place_path(place) do %>
+                <li class='list'>
+                    <%= image_tag place.image.variant(resize: '30x30'), class: 'place-image' if place.image.attached? %>
+                    <div class='place-text'>
+                      <h3 class='place-name'><%= place.name %></h3>
+                      <div class='place-info'><%= place.info %></div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="assets/gallery/location1.png" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>New York</p>
-                                <a href="#" class="location-btn">65 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
+                </li>
+                <% end %>
+              <% end %>
+            <% else %>
+                <%= link_to '#' do %>
+                <li class='list'>
+                    <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "place-image" %>
+                    <div class='place-text'>
+                      <h3 class='place-name'>投稿してね！</h3>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="assets/gallery/location2.png" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>Paris</p>
-                                <a href="#" class="location-btn">60 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="assets/gallery/location3.png" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>Rome</p>
-                                <a href="#" class="location-btn">50 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="assets/gallery/location4.png" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>Italy</p>
-                                <a href="#" class="location-btn">28 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="assets/gallery/location5.png" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>Nepal</p>
-                                <a href="#" class="location-btn">99 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-location mb-30">
-                            <div class="location-img">
-                                <img src="assets/gallery/location6.png" alt="">
-                            </div>
-                            <div class="location-details">
-                                <p>indonesia</p>
-                                <a href="#" class="location-btn">78 <i class="ti-plus"></i> Location</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- More Btn -->
-                <div class="row justify-content-center">
-                    <div class="room-btn pt-20">
-                        <a href="catagori.html" class="btn view-btn1">View All Places</a>
-                    </div>
-                </div>
-            </div>
+                </li>
+                <% end %>
+            <% end %>
+          </ul>
         </div>
-        <!-- Popular Locations End -->
-        <!-- Services Area Start -->
-        <div class="services-area pt-150 pb-150 section-bg" data-background="assets/gallery/section_bg02.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle section-tittle2 text-center mb-80">
-                            <span>Easy to explore</span>
-                            <h2> 3 step </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-between">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-services text-center mb-50">
-                            <div class="services-icon">
-                                <span class="flaticon-list"></span>
-                            </div>
-                            <div class="services-cap">
-                                <h5><a href="#">1. カテゴリーを選択</a></h5>
-                                <p>カテゴリを選択することであなたに合った場所を指定できる</p>
-                            </div>
-                            <!-- Shpape -->
-                            <img class="shape1 d-none d-lg-block" src="assets/icon/serices1.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-services text-center mb-50">
-                            <div class="services-icon">
-                                <span class="flaticon-problem"></span>
-                            </div>
-                            <div class="services-cap">
-                                <h5><a href="#">2. あなたの気になる投稿</a></h5>
-                                <p>お気に入りの投稿を見つけましょう</p>
-                            </div>
-                            <img class="shape2 d-none d-lg-block" src="assets/icon/serices2.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-services text-center mb-50">
-                            <div class="services-icon">
-                                <span class="flaticon-respect"></span>
-                            </div>
-                            <div class="services-cap">
-                                <h5><a href="#">3. コメントしましょう</a></h5>
-                                <p>投稿にコメントしましょう</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Services Area End -->
-        <!-- Categories Area Start -->
-        <div class="categories-area section-padding30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle text-center mb-80">
-                            <span>We are offering for you</span>
-                            <h2>Featured Categories</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <span class="flaticon-bed"></span>
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="catagori.html">Leving Hotel</a></h5>
-                                <p>投稿されたホテル</p>
-                                <a href="catagori.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <span class="flaticon-drink"></span>
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="catagori.html">Night Life</a></h5>
-                                <p>投稿されたバー、ナイトクラブ</p>
-                                <a href="catagori.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <span class="flaticon-home"></span>
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="catagori.html">Spot</a></h5>
-                                <p>投稿されたスポット</p>
-                                <a href="catagori.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <span class="flaticon-food"></span>
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="catagori.html">Resturent</a></h5>
-                                <p>投稿されたレストラン</p>
-                                <a href="catagori.html">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-            </div>
-        </div>
-        <!-- Categories Area End -->
-         <!-- peoples-visit Start -->
-         <div class="peoples-visit dining-padding-top">
-            <!-- Single Left img -->
-            <div class="single-visit left-img">
-                <div class="container">
-                    <div class="row justify-content-end">
-                        <div class="col-lg-8">
-                            <div class="visit-caption">
-                                <span>私はあなたに提供したい</span>
-                                <h3>このサイトを利用することで多くの情報を得られます。</h3>
-                                <!--Single Visit categories -->
-                                <div class="visit-categories mb-40">
-                                    <div class="visit-location">
-                                        <span class="flaticon-travel"></span>
-                                    </div>
-                                    <div class="visit-cap">
-                                        <h4>素晴らしい場所</h4>
-                                        <p>画像を投稿することにより、共感を得ることができます。</p>
-                                    </div>
-                                </div>
-                                <!--Single Visit categories -->
-                                <div class="visit-categories">
-                                    <div class="visit-location">
-                                        <span class="flaticon-work"></span>
-                                    </div>
-                                    <div class="visit-cap">
-                                        <h4>最大のカテゴリリスト</h4>
-                                        <p>カテゴリ別で管理しています。</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------->
     </main>
-    <footer>
+
+     <footer>
         <!-- Footer Start-->
         <div class="footer-area">
             <div class="container">
@@ -346,7 +115,7 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo">
-                                        <a href="index.html"><img src="assets/logo/logo2_footer.png" alt=""></a>
+                                        <%= link_to image_tag("logo/logo.png"), root_path %>
                                     </div>
                                 </div>
                             </div>
@@ -357,7 +126,7 @@
                                     <h4>Quick Link</h4>
                                     <ul>
                                         <li><%= link_to 'Home',root_path %></li>
-                                        <li><%# link_to 'Posted page',pages_path %></li>
+                                        <li><%= link_to 'Posted page',places_path %></li>
                                     </ul>
                                 </div>
                             </div>
@@ -407,11 +176,6 @@
         </div>
         <!-- Footer End-->
     </footer>
-
-    <!-- Scroll Up -->
-    <%#div id="back-top" >
-        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-    </div%>
 
     <div class='purchase-btn'>
       <span class='purchase-btn-text'>投稿する</span>

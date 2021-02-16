@@ -3,6 +3,7 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
+    @places = Place.includes(:user).order("id DESC")
   end
 
   def new
