@@ -1,0 +1,198 @@
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="../../assets/logo/loder.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparent">
+            <div class="main-header">
+               <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                  <%= link_to image_tag("logo/logo.png"), root_path %>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">                                                                                                                                     
+                                            <li><%= link_to 'Home',root_path %></li>
+                                            <li><%= link_to 'Posted page',places_path %></li>
+                                            <li class="login">
+                                                <% if user_signed_in? %>
+                                                    <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+                                                    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "logout" %></li>
+                                                <% else %>
+                                                    <li><%= link_to 'Login', new_user_session_path, class: "login" %></li>
+                                                    <li><%= link_to 'Sign up', new_user_registration_path, class: "sign-up" %></li>
+                                                <% end %>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+       </div>
+        <!-- Header End -->
+    </header>
+    <main>
+      <!-- Hero Area Start-->
+        <div class="slider-area hero-overly">
+            <div class="single-slider hero-overly  slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-lg-9">
+                            <!-- Hero Caption -->
+                            <div class="hero__caption">
+                                <span>Posts List</span>
+                                <h1>Discover Great Places</h1>
+                            </div>	
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Hero Area End-->
+<!--------------------------------------------------------->
+      <div class="page-show">
+        <div class="page-box">
+          <h2 class="name">
+            <%= @place.name %>
+          </h2>
+          <div class='page-img-content'>
+            <%= image_tag @place.image ,class:"page-box-img" %>
+          </div>
+
+          <% if user_signed_in?  %>
+            <% if current_user.id == @place.user_id %>
+              <%= link_to '投稿の編集', edit_place_path, method: :get, class: "page-red-btn" %>
+              <p class='or-text'>or</p>
+              <%# link_to '投稿の削除', page_path, method: :delete, class:'page-destroy' %>
+            <% end %>
+          <% end %>
+      
+          <div class="page-explain-box">
+            <span><%= @place.info %></span>
+          </div>
+          <table class="detail-table">
+            <tbody>
+              <tr>
+                <th class="detail-page">カテゴリー</th>
+                <td class="detail-value"><%= @place.category.name %></td>
+              </tr>
+              <tr>
+                <th class="detail-page">国名</th>
+                <td class="detail-value"><%= @place.country.name %></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="option">
+            <div class="favorite-btn">
+              <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+              <span>お気に入り 0</span>
+            </div>
+            <div class="report-btn">
+              <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+              <span>不適切な商品の通報</span>
+            </div>
+          </div>
+        </div>
+      </main>
+<!------------------------------------------------------------->
+      <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+               <div class="footer-top footer-padding">
+                    <div class="row justify-content-between">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="single-footer-caption mb-30">
+                                    <!-- logo -->
+                                    <div class="footer-logo">
+                                        <%= link_to image_tag("logo/logo.png"), root_path %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Quick Link</h4>
+                                    <ul>
+                                        <li><%= link_to 'Home',root_path %></li>
+                                        <li><%= link_to 'Posted page',places_path %></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Categories</h4>
+                                    <ul>
+                                        <li><a href="#">Reasonable Hotel</a></li>
+                                        <li><a href="#">Popular Restaurant</a></li>
+                                        <li><a href="#">Easy Shopping</a></li>
+                                        <li><a href="#">Night Life</a></li>     
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="footer-copy-right">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+    <div class='purchase-btn'>
+      <span class='purchase-btn-text'>投稿する</span>
+      <%= link_to image_tag("camera.png", size: '185x50' ,class: "purchase-btn-icon"), new_place_path %>
+    </div>
