@@ -17,7 +17,7 @@
         <h1 class="mains-sell-title">お気に入りの場所を投稿</h1>
   
         <%= form_with model: @place, local: true do |f| %>
-        <%# render 'shared/error_messages', model: f.object %>
+        <%= render 'shared/error_messages', model: f.object %>
       <%# 投稿画像 %>
           <div class="img-upload">
             <div class="weight-bold-text">
