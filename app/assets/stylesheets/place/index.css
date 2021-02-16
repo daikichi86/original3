@@ -23,7 +23,7 @@
   width: auto;
 }
 
-.page-content-item {
+.place-content-item {
   padding:40px 40px;
 }
 
@@ -36,16 +36,16 @@
   margin-bottom: 10px;
 }
 
-.page-image{
+.place-image{
   height:25vh;
   width:25vw;
 }
 
-.page-text{
+.place-text{
   margin-left: 50px;
 }
 
-.page-info{
+.place-info{
   font-size: 70%;
   color: black;
 }

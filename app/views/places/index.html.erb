@@ -80,7 +80,7 @@
             <% if @places.length != 0 %>
               <% @places.each do |place| %>
                 <%= link_to place_path(place) do %>
-                <li class='list'>
+                <li class='list2'>
                     <%= image_tag place.image.variant(resize: '30x30'), class: 'place-image' if place.image.attached? %>
                     <div class='place-text'>
                       <h3 class='place-name'><%= place.name %></h3>
