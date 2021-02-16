@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'places#index'
+  root to: 'mains#index'
+  resources :mains, only:[:index]
   resources :places
 end
