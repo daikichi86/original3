@@ -1,4 +1,4 @@
-.page-show {
+.place-show {
   background-color: #f8f8f8;
   width: 100vw;
   display: flex;
@@ -7,7 +7,7 @@
   padding: 5vh 0;
 }
 
-.page-box {
+.place-box {
   background-color: #FFF;
   width: 70vw;
   min-width: 1200px;
@@ -17,13 +17,13 @@
   align-items: center;
 }
 
-.page-box>.name {
+.place-box>.name {
   text-align: center;
   font-weight: bold;
   font-size: 25px;
 }
 
-.page-box-img {
+.place-box-img {
   height: 50vh;
   width: 60vw;
   min-height: 500px;
@@ -31,24 +31,24 @@
   object-fit: contain;
 }
 
-.page-price-box {
+.place-price-box {
   margin: 25px 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.page-price-box>.page-price {
+.place-price-box>.place-price {
   font-size: 4vh;
   font-weight: bold;
 }
 
-.page-price-box>.page-postage {
+.place-price-box>.place-postage {
   font-size: 16px;
 }
 
 
-.page-red-btn {
+.place-red-btn {
   text-align: center;
   background-color: #ea352d;
   font-size: 24px;
@@ -62,7 +62,7 @@
   font-size: 20px;
 }
 
-.page-destroy {
+.place-destroy {
   background-color: lightgray;
   text-align: center;
   font-size: 24px;
@@ -71,7 +71,7 @@
   padding: 2vh 10vw;
 }
 
-.page-explain-box {
+.place-explain-box {
   font-size: 18px;
   margin: 40px 0px;
 }
@@ -81,7 +81,7 @@
   width: 100%;
 }
 
-.detail-page {
+.detail-place {
   width: 20%;
   background-color: #eee;
   border: 1px solid #dedede;
@@ -188,13 +188,13 @@
 
 }
 
-.change-page-btn {
+.change-place-btn {
   font-size: 30px;
   text-decoration: none;
   color: #3CCACE;
 }
 
-.another-page {
+.another-place {
   display: block;
   margin: 30px 0px 8px;
   color: #3CCACE;

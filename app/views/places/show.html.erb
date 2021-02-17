@@ -74,34 +74,34 @@
         </div>
         <!--Hero Area End-->
 <!--------------------------------------------------------->
-      <div class="page-show">
-        <div class="page-box">
+      <div class="place-show">
+        <div class="place-box">
           <h2 class="name">
             <%= @place.name %>
           </h2>
-          <div class='page-img-content'>
-            <%= image_tag @place.image ,class:"page-box-img" %>
+          <div class='place-img-content'>
+            <%= image_tag @place.image ,class:"place-box-img" %>
           </div>
 
           <% if user_signed_in?  %>
             <% if current_user.id == @place.user_id %>
-              <%= link_to '投稿の編集', edit_place_path, method: :get, class: "page-red-btn" %>
+              <%= link_to '投稿の編集', edit_place_path, method: :get, class: "place-red-btn" %>
               <p class='or-text'>or</p>
-              <%# link_to '投稿の削除', page_path, method: :delete, class:'page-destroy' %>
+              <%= link_to '投稿の削除', place_path, method: :delete, class:'place-destroy' %>
             <% end %>
           <% end %>
       
-          <div class="page-explain-box">
+          <div class="place-explain-box">
             <span><%= @place.info %></span>
           </div>
           <table class="detail-table">
             <tbody>
               <tr>
-                <th class="detail-page">カテゴリー</th>
+                <th class="detail-place">カテゴリー</th>
                 <td class="detail-value"><%= @place.category.name %></td>
               </tr>
               <tr>
-                <th class="detail-page">国名</th>
+                <th class="detail-place">国名</th>
                 <td class="detail-value"><%= @place.country.name %></td>
               </tr>
             </tbody>

@@ -81,7 +81,7 @@
               <% @places.each do |place| %>
                 <%= link_to place_path(place) do %>
                 <li class='list2'>
-                    <%= image_tag place.image.variant(resize: '30x30'), class: 'place-image' if place.image.attached? %>
+                    <%= image_tag place.image,class: 'place-image' if place.image.attached? %>
                     <div class='place-text'>
                       <h3 class='place-name'><%= place.name %></h3>
                       <div class='place-info'><%= place.info %></div>
@@ -91,7 +91,7 @@
               <% end %>
             <% else %>
                 <%= link_to '#' do %>
-                <li class='list'>
+                <li class='list2'>
                     <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "place-image" %>
                     <div class='place-text'>
                       <h3 class='place-name'>投稿してね！</h3>
