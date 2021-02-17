@@ -85,9 +85,7 @@
   border-radius: 20px;
 }
 
-.category_country{
-  display: flex;
-  justify-content: space-around;
+.category,.country{
   margin-top: 10px;
   color:black;
 }

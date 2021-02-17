@@ -1,4 +1,4 @@
-<!-- Preloader Start -->
+    <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -16,8 +16,8 @@
         <div class="mains-sell-main">
         <h1 class="mains-sell-title">お気に入りの場所を投稿</h1>
   
-        <%= form_with model: @place, local: true do |f| %>
-        <%= render 'shared/error_messages', model: f.object %>
+        <%= form_with( model: @place, local: true) do |f| %>
+        <%# render 'shared/error_messages', model: f.object %>
       <%# 投稿画像 %>
           <div class="img-upload">
             <div class="weight-bold-text">
@@ -46,16 +46,17 @@
   
           <%= f.text_area :info, class:"single-input-primary", placeholder:"どんな場面なのか詳細を書いてみよう。(200文字まで)" ,rows:"7" ,maxlength:"200" %>
 
-          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class: "category"}) %>
-
-          <%= f.collection_select(:country_id, Country.all, :id, :name, {}, {class: "country"}) %>
-          
+          <div class="category_country">
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category"}) %>
+            <%= f.collection_select(:country_id, Country.all, :id, :name, {}, {class: "country"}) %>
+          </div>
       <%# 下部ボタン %>
           <div class="sell-btn-contents">
-            <%= f.submit "投稿する" ,class:"sell-btn" %>
+            <%= f.submit "変更する" ,class:"sell-btn" %>
             <%=link_to 'もどる', root_path, class:"back-btn" %>
           </div>
         <% end %>
         </div>
       </div>
     </main>
+

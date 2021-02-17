@@ -55,7 +55,6 @@
        </div>
         <!-- Header End -->
     </header>
-
     <main>
       <!-- Hero Area Start-->
         <div class="slider-area hero-overly">
@@ -74,37 +73,53 @@
             </div>
         </div>
         <!--Hero Area End-->
-<!-------------------------------------------------------------------------------------------------------------------------------------------------------->
-        <div class="place-content-item">
-          <ul>
-            <% if @places.length != 0 %>
-              <% @places.each do |place| %>
-                <%= link_to place_path(place) do %>
-                <li class='list2'>
-                    <%= image_tag place.image,class: 'place-image' if place.image.attached? %>
-                    <div class='place-text'>
-                      <h3 class='place-name'><%= place.name %></h3>
-                      <div class='place-info'><%= place.info %></div>
-                    </div>
-                </li>
-                <% end %>
-              <% end %>
-            <% else %>
-                <%= link_to '#' do %>
-                <li class='list2'>
-                    <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "place-image" %>
-                    <div class='place-text'>
-                      <h3 class='place-name'>投稿してね！</h3>
-                    </div>
-                </li>
-                <% end %>
-            <% end %>
-          </ul>
-        </div>
-<!------------------------------------------------------------------------------------------------------------------------------------------------------------->
-    </main>
+<!--------------------------------------------------------->
+      <div class="place-show">
+        <div class="place-box">
+          <h2 class="name">
+            <%= @place.name %>
+          </h2>
+          <div class='place-img-content'>
+            <%= image_tag @place.image ,class:"place-box-img" %>
+          </div>
 
-     <footer>
+          <% if user_signed_in?  %>
+            <% if current_user.id == @place.user_id %>
+              <%= link_to '投稿の編集', edit_place_path, method: :get, class: "place-red-btn" %>
+              <p class='or-text'>or</p>
+              <%= link_to '投稿の削除', place_path, method: :delete, class:'place-destroy' %>
+            <% end %>
+          <% end %>
+      
+          <div class="place-explain-box">
+            <span><%= @place.info %></span>
+          </div>
+          <table class="detail-table">
+            <tbody>
+              <tr>
+                <th class="detail-place">カテゴリー</th>
+                <td class="detail-value"><%= @place.category.name %></td>
+              </tr>
+              <tr>
+                <th class="detail-place">国名</th>
+                <td class="detail-value"><%= @place.country.name %></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="option">
+            <div class="favorite-btn">
+              <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+              <span>お気に入り 0</span>
+            </div>
+            <div class="report-btn">
+              <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+              <span>不適切な商品の通報</span>
+            </div>
+          </div>
+        </div>
+      </main>
+<!------------------------------------------------------------->
+      <footer>
         <!-- Footer Start-->
         <div class="footer-area">
             <div class="container">
