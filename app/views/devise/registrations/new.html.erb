@@ -16,7 +16,6 @@
           <%= link_to image_tag("logo/logo.png"), root_path %>
         </div>
       <div class="login-container">
-        <div class="avatar"></div>
         <%= form_with model: @user, url: user_registration_path, class: 'form-box', local: true do |f| %>
           <%= devise_error_messages! %>
           
@@ -33,7 +32,6 @@
           <% if @minimum_password_length %>
             <em><%= @minimum_password_length %> Password characters minimum</em>
           <% end %><br />
-          
         <% end %>
       </div>
       </div>
