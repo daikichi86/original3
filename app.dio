@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2021-02-15T06:50:42.541Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="k3F6fpzzyTMKwPu6XpUS" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-02-19T12:46:04.842Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="y6kQ2wQckuFO9ALL9u9M" version="14.2.4" type="embed">
     <diagram id="pgq75Y0kSell__X4bYmv" name="ページ1">
         <mxGraphModel dx="968" dy="730" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -48,7 +48,7 @@
                 <mxCell id="57" value="user_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="29" vertex="1">
                     <mxGeometry y="52" width="140" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" value="main_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="29" vertex="1">
+                <mxCell id="58" value="place_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="29" vertex="1">
                     <mxGeometry y="78" width="140" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="49" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=1.021;exitY=0.115;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.007;entryY=1.038;entryDx=0;entryDy=0;strokeWidth=1;jumpSize=6;endSize=20;startSize=20;entryPerimeter=0;" parent="1" source="3" target="12" edge="1">
@@ -57,13 +57,13 @@
                         <mxPoint x="470" y="370" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="59" value="・has_many mains&lt;br&gt;・belongs_to user" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                <mxCell id="59" value="・has_many places&lt;br&gt;・belongs_to user" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="220" y="230" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="61" value="・has_many comments&lt;br&gt;・belongs_to user" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="95" y="490" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" value="・has_many comments&lt;br&gt;・belongs_to main" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+                <mxCell id="62" value="・has_many comments&lt;br&gt;・belongs_to place" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="440" y="420" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1;jumpSize=6;endSize=20;startSize=20;" parent="1" target="30" edge="1">
